@@ -14,8 +14,12 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 
-app = Flask(__name__)
+app = Flask(__name__,instance_relative_config=True)
+
+#读取隐藏配置文件和配置文件
 app.config.from_object("config")
+app.config.from_pyfile("config.py")
+
 db = SQLAlchemy(app)
 
 from app import views,models
