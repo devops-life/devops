@@ -12,9 +12,10 @@
 
 from flask import Blueprint,render_template
 from app.models import User
+
 #新建蓝图
 home = Blueprint('home',__name__)
 
 @home.route('/')
 def login():
-    user = User.query.all()
+    return 'home'

@@ -23,6 +23,19 @@ class User(db.Model):
         self.username = username
         self.set_password(password)
         self.email = email
+    # flask-login 整合
+
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return str(self.id)
 
     def __repr__(self):
         return '&lt;User %r>' % self.username

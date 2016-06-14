@@ -29,6 +29,7 @@ def create_app():
 
     return app
 #注册蓝图
+
 def register_blueprints(app):
     app.register_blueprint(home,url_prefix='/home')
     app.register_blueprint(admin,url_prefix='/admin')
@@ -38,6 +39,9 @@ def register_database(app):
     db.init_app(app)
 
 #设置flask-login
+"""
+参考链接http://docs.jinkan.org/docs/flask-login/
+"""
 def init_login(app):
     login_manager = LoginManager()
     login_manager.init_app(app)
