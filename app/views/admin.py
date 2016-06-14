@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 # encoding: utf-8
 
@@ -12,10 +11,11 @@
 """
 
 
-class Main():
-    def __init__(self):
-        pass
+from flask import Blueprint,render_template
 
+#新建蓝图
+admin = Blueprint('admin',__name__)
 
-if __name__ == '__main__':
-    pass
+@admin.route('/')
+def index():
+    return 'admin'

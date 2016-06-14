@@ -11,10 +11,10 @@
 """
 
 from flask import Blueprint,render_template
-
+from app.models import User
 #新建蓝图
 home = Blueprint('home',__name__)
 
-@home.route('')
-def index():
-    render_template('home/index.html')
+@home.route('/')
+def login():
+    user = User.query.all()

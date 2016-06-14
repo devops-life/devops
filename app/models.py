@@ -9,9 +9,8 @@
 @file: models.py
 @time: 16/6/8 下午2:25
 """
-
-from app import db
-from werkzeug.security import generate_password_hash,check_password_hash
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -24,13 +23,6 @@ class User(db.Model):
         self.username = username
         self.set_password(password)
         self.email = email
-
-    def set_password(self,password):
-        self.pw_hash = generate_password_hash(password)
-        return self.pw_hash
-
-    def check_password(self, password):
-        return check_password_hash(self.pw_hash, password)
 
     def __repr__(self):
         return '&lt;User %r>' % self.username
